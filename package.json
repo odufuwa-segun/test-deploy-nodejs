@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "pm2 startOrReload ecosystem.config.js",
+    "deploy": "pm2 startOrReload ecosystem.config.js --update-env",
     "stop-deploy": "pm2 stop ecosystem.config.js"
   },
   "dependencies": {
