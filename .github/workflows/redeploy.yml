@@ -1,20 +1,16 @@
-# filepath: .github/workflows/deploy.yml
-name: Deploy Application
+# filepath: .github/workflows/redeploy.yml
+name: Redeploy Application
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  redeploy:
     uses: Opendashboard-Inc/opendashboard-deployments/.github/workflows/node-deploy-ssh.yml@main
     with:
-      NAME: "my-app"
       PROJECT_PATH: "/var/www/test.olusegun.cv/node_root"
       ENV_FILE_PATH: "/test-app-configs/contents/test.olusegun.cv.env"
-      EXECUTE_DEPLOYMENT: true
-      BUILD_DIR_NAME: ".next"
+      REDEPLOY: true
       SSH_HOST: "test.olusegun.cv"
     secrets:
       SSH_KEY: ${{ secrets.SSH_KEY }}
