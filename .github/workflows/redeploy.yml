@@ -8,6 +8,7 @@ jobs:
   redeploy:
     uses: Opendashboard-Inc/opendashboard-deployments/.github/workflows/node-deploy-ssh.yml@main
     with:
+      NAME: "my-app"
       PROJECT_PATH: "/var/www/test.olusegun.cv/node_root"
       ENV_FILE_PATH: "/test-app-configs/contents/test.olusegun.cv.env"
       REDEPLOY: true
