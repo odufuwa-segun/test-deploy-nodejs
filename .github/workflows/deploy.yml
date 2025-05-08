@@ -1,0 +1,22 @@
+# filepath: .github/workflows/deploy.yml
+name: Deploy Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    uses: Opendashboard-Inc/opendashboard-deployments/.github/workflows/node-deploy-ssh.yml@main
+    with:
+      NAME: "my-app"
+      PROJECT_PATH: "/var/www/test.olusegun.cv/node_root"
+      ENV_FILE_PATH: "/test-app-configs/contents/test.olusegun.cv.env"
+      EXECUTE_DEPLOYMENT: true
+      BUILD_DIR_NAME: ".next"
+      SSH_HOST: "test.olusegun.cv"
+    secrets:
+      SSH_KEY: ${{ secrets.SSH_KEY }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}

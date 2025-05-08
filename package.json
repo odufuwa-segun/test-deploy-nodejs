@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate:run": "",
-    "deploy": ""
+    "deploy": "pm2 startOrReload ecosystem.config.js",
+    "stop-deploy": "pm2 stop ecosystem.config.js"
   },
   "dependencies": {
     "react": "^19.0.0",
